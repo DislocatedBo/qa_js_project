@@ -22,3 +22,4 @@ const response = await context.post(`${config.baseUrl}/register`, {
 
 }
 
+export default registerUser
