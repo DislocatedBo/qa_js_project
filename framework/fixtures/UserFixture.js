@@ -9,9 +9,6 @@ export function UserFixtureFunc() {
   let random = Math.random();
   gender = random < 0.5 ? "M" : "F";
 
-  //Remember me flag
-  const rememberMe = false;
-
   //browser token
   const token = 'FGMkg8AFwiEok6J8j-7mbpGUJmC5v58I-8-w3OSjSYzZ7SUZh-gBT68qOLdwbGA5XnZwoiOh7zDc-x9DALG-_T7zp58fuOXjJP1OhNzHr5k1'
 
@@ -54,11 +51,6 @@ export function UserFixtureFunc() {
 
     addGender(gender) {
         data.Gender = gender;
-        return this;
-      },
-
-    addRememberMe(rememberMe) {
-        data.RememberMe = rememberMe;
         return this;
       },
     
