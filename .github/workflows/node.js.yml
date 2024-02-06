@@ -46,6 +46,9 @@ jobs:
     - name: Run tests
       run: npx playwright test
 
+    - name: Generate report
+      run: npx allure serve allure-results
+
     - name: Upload report
       uses: actions/upload-artifact@v3
       with: 
