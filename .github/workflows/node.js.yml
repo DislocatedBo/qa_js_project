@@ -44,25 +44,14 @@ jobs:
       run: npm run build --if-present
 
     - name: Run tests
-      run: npm run test
+      run: npx playwright test
 
     - name: Upload report
       uses: actions/upload-artifact@v3
       with: 
         name: report
         if-no-files-found: error
-        path: ./jest-html-report
-
-    - name: Run tests coverage
-      run: npm run test:coverage
-      continue-on-error: true
-
-    - name: Upload coverage
-      uses: actions/upload-artifact@v3
-      with:
-        name: coverage
-        if-no-files-found: error
-        path: ./coverage
+        path: ./allure-results
 
     - name: send telegram message on push
       uses: appleboy/telegram-action@master
@@ -81,8 +70,8 @@ jobs:
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v1
       with:
-        path: './jest-html-report'
+        path: './allure-results'
 
-    - name: Deploy to GitHub Pages
-      id: deployment
-      uses: actions/deploy-pages@v1
+    # - name: Deploy to GitHub Pages
+    #   id: deployment
+    #   uses: actions/deploy-pages@v1
