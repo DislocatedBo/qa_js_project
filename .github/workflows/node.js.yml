@@ -30,14 +30,9 @@ jobs:
       - name: Run Playwright Tests
         run: npx playwright test
 
-      - name: Generate Allure report
-        run: npx allure generate allure-results --clean -o allure-reports
-        if: always()
-
-      - name: Execute Telegram Notification Script
+      - name: Generate Allure report and send tg
         run: |
-              cd $GITHUB_WORKSPACE  
-              git checkout gh-pages
+              npx allure generate allure-results --clean -o allure-reports
               chmod +x Telegramm.sh
               ./Telegramm.sh
         if: always()
