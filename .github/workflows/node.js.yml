@@ -31,20 +31,12 @@ jobs:
         run: npx allure generate allure-results --clean -o allure-reports
         if: always()
 
-  deploy:
-    runs-on: ubuntu-latest
-    needs: test
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-
       - name: Deploy Allure report to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./allure-reports
-        if: always() && github.event_name == 'push' && github.ref != 'refs/heads/main'
+          if: always() && github.event_name == 'push' && github.ref != 'refs/heads/main'
 
       - name: Execute Telegram Notification Script
         run: |
