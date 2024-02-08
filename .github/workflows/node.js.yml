@@ -24,23 +24,14 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Install Allure Commandline
-        run: npm install allure-commandline --save-dev
-
       - name: Install Playwright
         run: npx playwright install
 
       - name: Run Playwright Tests
-        run: |
-            cd $GITHUB_WORKSPACE 
-            npx playwright test
+        run: npx playwright test
 
       - name: Generate Allure report and send tg
-        run: |
-              cd $GITHUB_WORKSPACE
-              npx allure generate allure-results --clean -o allure-reports
-              chmod +x Telegramm.sh
-              ./Telegramm.sh
+        run: npx allure generate allure-results --clean -o allure-reports
         if: always()
 
       - name: Deploy Allure report to GitHub Pages
@@ -51,3 +42,8 @@ jobs:
           publish_dir: ./allure-reports
         if: always()
 
+      - name: Execute Telegram Notification Script
+        run: |
+              chmod +x Telegramm.sh
+              ./Telegramm.sh
+        if: always()
