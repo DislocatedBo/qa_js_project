@@ -29,7 +29,14 @@ jobs:
 
       - name: Generate Allure report
         run: npx allure generate allure-results --clean -o allure-reports
-        if: always() 
+        if: always()
+
+      - name: Deploy Allure report to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./allure-reports
+        if: always()
 
       - name: Execute Telegram Notification Script
         run: |
