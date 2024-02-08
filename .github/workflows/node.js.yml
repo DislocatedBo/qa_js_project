@@ -28,10 +28,13 @@ jobs:
         run: npx playwright install
 
       - name: Run Playwright Tests
-        run: npx playwright test
+        run: |
+            cd $GITHUB_WORKSPACE 
+            npx playwright test
 
       - name: Generate Allure report and send tg
         run: |
+              cd $GITHUB_WORKSPACE
               npx allure generate allure-results --clean -o allure-reports
               chmod +x Telegramm.sh
               ./Telegramm.sh
