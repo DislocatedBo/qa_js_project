@@ -34,6 +34,10 @@ jobs:
         run: npx allure generate allure-results --clean -o allure-reports
         if: always()
 
+      - name: Switch to gh-pages branch
+        run: git checkout gh-pages
+        working-directory: ./
+
       - name: Deploy Allure report to GitHub Pages
         id: deploy-to-gh-pages
         uses: peaceiris/actions-gh-pages@v3
@@ -41,12 +45,6 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./allure-reports
         if: always()
-
-      - name: Debug Git
-        run: |
-            git branch -a
-            git show-ref
-            working-directory: ./
 
       - name: Execute Telegram Notification Script
         run: |
