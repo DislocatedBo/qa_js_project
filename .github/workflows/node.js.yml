@@ -14,7 +14,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Clear Allure reports
-        run: rm -rf allure-reports/*
+        run: rm -rf allure-results/*
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
@@ -28,7 +28,7 @@ jobs:
         run: npx playwright test
 
       - name: Generate Allure report
-        run: npx allure generate allure-results --clean -o allure-reports
+        run: npx allure generate allure-results --clean -o allure-results
         if: always()
 
   deploy:
@@ -43,5 +43,5 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./allure-reports
-        if: always()
+          publish_dir: ./allure-results
+        if: always() && github.event_name == 'push' && github.ref == 'refs/heads/main'
