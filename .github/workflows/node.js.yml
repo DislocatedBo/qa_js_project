@@ -37,6 +37,10 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./allure-reports
         if: always()
+        
+      - name: Switch to gh-pages branch
+        run: git checkout gh-pages
+        if: always()
 
       - name: Execute Telegram Notification Script
         run: |
