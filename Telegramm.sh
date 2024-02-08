@@ -1,7 +1,7 @@
 java \
-"-DprojectName=E2E Test Merchant Cabinet" \
+"-DprojectName=test andrey" \
 "-Denv=e2e" \
-"-DreportLink=https://elementpay.testops.cloud/project/2/launches" \
-"-Dcomm=E2E UI Test Merchant Cabinet" \
+"-DreportLink=https://dislocatedbo.github.io/qa_js_project/" \
+"-Dcomm=test api/ui" \
 "-Dconfig.file=./allure-notifications.json" \
 -jar allure-notifications-3.1.2.jar
