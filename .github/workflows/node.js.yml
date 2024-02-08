@@ -42,8 +42,11 @@ jobs:
           publish_dir: ./allure-reports
         if: always()
 
-      - name: Delay
-        run: sleep 10
+      - name: Debug Git
+        run: |
+            git branch -a
+            git show-ref
+            working-directory: .
 
       - name: Execute Telegram Notification Script
         run: |
