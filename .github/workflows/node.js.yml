@@ -35,11 +35,15 @@ jobs:
         if: always()
 
       - name: Deploy Allure report to GitHub Pages
+        id: deploy-to-gh-pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./allure-reports
         if: always()
+
+      - name: Delay
+        run: sleep 10
 
       - name: Execute Telegram Notification Script
         run: |
