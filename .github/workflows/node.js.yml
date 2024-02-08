@@ -36,6 +36,7 @@ jobs:
         run: |
               cd $GITHUB_WORKSPACE
               npx allure generate allure-results --clean -o allure-reports
+              allure generate allure-results
               chmod +x Telegramm.sh
               ./Telegramm.sh
         if: always()
