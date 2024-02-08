@@ -46,7 +46,7 @@ jobs:
         run: |
             git branch -a
             git show-ref
-            working-directory: .
+            working-directory: ./
 
       - name: Execute Telegram Notification Script
         run: |
