@@ -8,7 +8,7 @@
       "base": {
         "lang": "en",
         "messenger": "telegram",
-        "allureFolder": "https://github.com/DislocatedBo/qa_js_project/tree/gh-pages/",
+        "allureFolder": ".",
         "allureLinkPath": "",
         "chart": true,
         "chartName": "",
