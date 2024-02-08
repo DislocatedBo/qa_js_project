@@ -31,6 +31,14 @@ jobs:
         run: npx allure generate allure-results --clean -o allure-reports
         if: always()
 
+  deploy:
+    runs-on: ubuntu-latest
+    needs: test
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
       - name: Deploy Allure report to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
