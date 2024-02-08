@@ -42,13 +42,10 @@ jobs:
           publish_dir: ./allure-reports
         if: always()
 
-      - name: Switch to gh-pages branch
-        run: git checkout gh-pages
-        working-directory: /allure-reports
-
       - name: Execute Telegram Notification Script
         run: |
-          git checkout gh-pages
-          chmod +x Telegramm.sh
-          ./Telegramm.sh
+              cd $GITHUB_WORKSPACE  
+              git checkout gh-pages
+              chmod +x Telegramm.sh
+              ./Telegramm.sh
         if: always()
