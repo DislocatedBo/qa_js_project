@@ -1,10 +1,13 @@
 const fs = require('fs');
 
+const botToken = process.env.BOT_TOKEN;
+const chatId = process.env.CHAT_ID;
+
 const alluretg = {
     "app": {
       "bot": {
-        "token": BOT_TOKEN,
-        "chat": CHAT_ID,
+        "token": botToken,
+        "chat": chatId,
         "replyTo": ""
       },
       "base": {
