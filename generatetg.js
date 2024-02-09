@@ -3,8 +3,8 @@ const fs = require('fs');
 const alluretg = {
     "app": {
       "bot": {
-        "token": process.env.TELEGRAM_TOKEN,
-        "chat": process.env.TELEGRAM_CHANNEL,
+        "token": "5261770871:AAE87HSr5IAvpB8z1mufE-nM8wpr0BDHUMU",
+        "chat": "-1001754984891",
         "replyTo": ""
       },
       "base": {
