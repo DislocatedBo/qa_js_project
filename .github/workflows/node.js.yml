@@ -29,6 +29,9 @@ jobs:
 
       - name: Generate tg key
         run: node generatetg.js
+        env:
+           BOT_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+           CHAT_ID: ${{ secrets.TELEGRAM_CHANNEL }}
 
       - name: Run Playwright Tests
         run: npx playwright test
