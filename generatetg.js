@@ -1,8 +1,13 @@
-{
+const fs = require('fs');
+
+const botToken = process.env.BOT_TOKEN;
+const chatId = process.env.CHAT_ID;
+
+const alluretg = {
     "app": {
       "bot": {
-        "token": "5261770871:AAE87HSr5IAvpB8z1mufE-nM8wpr0BDHUMU",
-        "chat": "-1001754984891",
+        "token": botToken,
+        "chat": chatId,
         "replyTo": ""
       },
       "base": {
@@ -41,4 +46,10 @@
         "botName": ""
       }
     }
-  }
+  };
+
+const jsonString = JSON.stringify(alluretg, null, 2);
+
+const filePath = './allure-notifications.json';
+
+fs.writeFileSync(filePath, jsonString, 'utf-8');
